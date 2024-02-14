@@ -1,7 +1,11 @@
 export default class Panier {
 
-    constructor(){
-        
+    /**
+     * 
+     * Affiche dans modal le LocalStorage[] reçu
+     */
+    constructor(ContentLocalStorage){
+
     }
 
 }
