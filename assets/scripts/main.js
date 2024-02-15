@@ -15,7 +15,6 @@ window.addEventListener('DOMContentLoaded', function() {
     
     const elsBibliotheque =  document.querySelectorAll('[data-js-bibliotheque]');
     for (let i = 0, l =  elsBibliotheque.length; i < l; i++) {
-        console.log(elsBibliotheque[i]);
         new Bibliotheque(elsBibliotheque[i], 'base');
     }
     

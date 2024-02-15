@@ -23,7 +23,6 @@ export default class Panier {
         this.domAjoutAuPanier.forEach(function(btnAjoutPanier) {
 
             btnAjoutPanier.addEventListener('click', function(pushToPanier) {
-                console.log(pushToPanier);
                 let index = pushToPanier.currentTarget.dataset.jsAjouterPanier;
                 //console.log(index);
                 //new Livre(index);

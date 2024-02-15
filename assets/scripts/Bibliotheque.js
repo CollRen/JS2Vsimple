@@ -27,7 +27,6 @@ export default class Bibliotheque {
         for (let i = 0, l = this._elsFiltre.length; i < l; i++) {
             this._elsFiltre[i].addEventListener('click', function(filtreChoisi){
                 this._filtre = filtreChoisi.currentTarget.dataset.jsFiltre;
-                //this._filtreActuel = this._elsFiltre[i];
                 this.affichage();
             }.bind(this));         
         }
@@ -37,61 +36,83 @@ export default class Bibliotheque {
     affichage() {
         //this._filtreActuel.classList.add('filtre--clicked');
         this.newArrayLivre = this.arrayLivre;
+        
 
         switch (this._filtre) {
             case 'base':
-                this.affBase(12);
-            break;
+                this.affBase('tous', 12);
+                break;
 
             case 'Tous':
-                this.affBase(this.newArrayLivre.length);
-            break;
+                this.affBase('tous');
+                break;
 
             case 'Nouveautés':
-                this.newArrayLivre = [];
-                for (let i = 0; i < oLivres.length; i++) {
-                    if(oLivres[i].nouveaute == true){
-                        this.newArrayLivre.push(oLivres[i]);
-                    }}
-                    this.affBase(this.newArrayLivre.length);
+                this.affBase('Nouveautés');
                 break;
+
+            case 'Littérature':
+                this.affBase('Littérature');
+                break;
+
+            case 'Art de vivre':
+                this.affBase('Art de vivre');
+            break;
+
+            case 'BD, Jeunesse, Humour':
+                this.affBase('Art de vivre');
+            break;
+
+            case 'Culture et société':
+                this.affBase('Art de vivre');
+            break;
+            
+            case 'Loisirs, Tourisme, Nature':
+                this.affBase('Art de vivre');
+            break;
+
+            case 'Savoir et science':
+                this.affBase('Art de vivre');
+            break;
                         
             default:
-                this.newArrayLivre = [];
-
-                for (let i = 0; i < oLivres.length; i++) {
-
-                    if(this._filtre == oLivres[i].categorie){
-                        this.newArrayLivre.push(oLivres[i]);
-                }
-                this.affBase(this.newArrayLivre.length);
-            }
+                this.affBase(this._filtre);
             break;
         }
     }
 
 
-    affBase(nbrAff) {
-        //while (this.tuile.firstChild) {
-        //    this.tuile.removeChild(this.tuile.firstChild);
-        //  }
+    affBase(filtre, nbrAff = oLivres.length) {
         this._elLivres.innerHTML = '';
         for (let i = 0; i < nbrAff; i++) {
 
-            let dom = `
-                <div class="encadre insertedContent" data-js-livre=${i}>
-                    <img src="${this.newArrayLivre[i].image}" alt="">
-                    <p>${this.newArrayLivre[i].categorie}</p>
-                    <div class="grille--2__container">
-                        <strong>${this.newArrayLivre[i].prix}<nbsp></nbsp>$</strong>
-                        <div class="ajout-panier" data-js-ajouter-panier="${i}">Ajouter</div>
-                    </div>
-                </div>`;
-            this._elLivres.insertAdjacentHTML('beforeend', dom);
+            // structures condition selon si filtre ou nouveauté
+            if(this._filtre == oLivres[i].categorie || 
+                this._filtre == 'Nouveautés' && oLivres[i].nouveaute == true ||
+                this._filtre == 'Tous' || nbrAff ) {
 
-            new Livre(this._elLivres.lastElementChild);
+                let dom = `
+                    <div class="encadre insertedContent" data-js-livre=${i}>
+                        <img src="${oLivres[i].image}" alt="">
+                        <p>${oLivres[i].categorie}</p>
+                        <div class="grille--2__container">
+                            <strong>${oLivres[i].prix}<nbsp></nbsp>$</strong>
+                            <div class="ajout-panier" data-js-ajouter-panier="${i}">Ajouter</div>
+                        </div>
+                    </div>`;
+                this._elLivres.insertAdjacentHTML('beforeend', dom);
+                
+                new Livre(this._elLivres.lastElementChild);
+            }
+
+
         }
     }
-  
+    
+    get newLivreArray() {
+        return this.newArrayLivre;
+    }
     
 }
+
+
