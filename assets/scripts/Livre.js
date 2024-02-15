@@ -6,7 +6,13 @@ export default class Livre {
     }
 
     init() {
-        console.log(this._el);
+        this._el.addEventListener('click', function(onClick) {
+            console.log(onClick.currentTarget.dataset.jsLivre);
+
+        });
+
     }
+
+
     
 }

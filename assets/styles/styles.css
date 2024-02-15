@@ -156,6 +156,10 @@ header {
     cursor: pointer;
 }
 
+.filtre--clicked {
+    opacity: 50%;
+}
+
 .filtre--selectionne {
     color: rgb(124, 44, 44);
 }
