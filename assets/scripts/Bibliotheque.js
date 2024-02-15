@@ -2,15 +2,24 @@ import {oLivres} from './oLivres.js';
 
 export default class Bibliotheque {
 
-    constructor(_elFiltre) {
-        this._elFiltre = _elFiltre;
+    constructor(el, elFiltre) {
+        this._el = el; 
+        console.log(this._el);
+        console.log(elFiltre);
+        this._elFiltre = elFiltre;
         this.tuile = document.querySelector('[data-js-tuile]');
+        this._elLivres = this._el.querySelector('[data-js-livres]')
         this.arrayLivre = oLivres;
         this.init();
     }
 
     init() {
         this.affichage();
+
+
+        
+
+
     }
 
 
@@ -46,23 +55,25 @@ Savoir et science
                     this.affBase(this.newArrayLivre.length);
                 break;
                         
-                default:
-                    this.newArrayLivre = [];
+            default:
+                this.newArrayLivre = [];
 
-                    for (let i = 0; i < oLivres.length; i++) {
+                for (let i = 0; i < oLivres.length; i++) {
 
-                        if(this._elFiltre == oLivres[i].categorie){
-                            this.newArrayLivre.push(oLivres[i]);
-                    }
-                    this.affBase(this.newArrayLivre.length);
+                    if(this._elFiltre == oLivres[i].categorie){
+                        this.newArrayLivre.push(oLivres[i]);
                 }
-                break;
+                this.affBase(this.newArrayLivre.length);
+            }
+            break;
         }
     }
     affBase(nbrAff) {
-        while (this.tuile.firstChild) {
-            this.tuile.removeChild(this.tuile.firstChild);
-          }
+        //while (this.tuile.firstChild) {
+        //    this.tuile.removeChild(this.tuile.firstChild);
+        //  }
+
+        this._elLivres.innerHTML = '';
 
         for (let i = 0; i < nbrAff; i++) {
 
@@ -75,7 +86,9 @@ Savoir et science
                         <div class="ajout-panier" data-js-ajouter-panier="${this.newArrayLivre[i].index}">Ajouter</div>
                     </div>
                 </div>`;
-            this.tuile.insertAdjacentHTML('beforeend', dom);
+            this._elLivres.insertAdjacentHTML('beforeend', dom);
+
+            //new Livre(this._elLivres.lastElementChild);
         }
     }
   
