@@ -28,6 +28,7 @@ window.addEventListener('DOMContentLoaded', function() {
     const elsBibliotheque =  document.querySelectorAll('[data-js-bibliotheque]');
 
     for (let i = 0, l =  elsBibliotheque.length; i < l; i++) {
+        console.log(elsBibliotheque[i]);
         new Bibliotheque(elsBibliotheque[i], 'base');
     }
 
@@ -52,33 +53,5 @@ window.addEventListener('DOMContentLoaded', function() {
     });
     */
 
-
-    /* 
-    [{"titre":"J'ai faim !","prix":15},{"titre":"Rock attitude","prix":20},{"titre":"Un ami pour ours polaire","prix":20}]
-    */
-
-    /**
-     * Au click d'un filtre
-     * 
-     * Lancer l'affichage des livres en conséquence
-     */
-    /*
-    const filtres = document.querySelectorAll('[data-js-filtre]');
-    filtres.forEach(function(onFiltre) {
-        onFiltre.addEventListener('click', function(filtreChoisi){
-            let typeFiltre = filtreChoisi.currentTarget.dataset.jsFiltre;
-            
-            new Bibliotheque(typeFiltre);
-            
-        });
-    });
-    */
-
-
-
-   
-
 });
 //appelleTests();
-
-// titre, auteur, description, prix, editeur, pages, image, nouveaute, categorie

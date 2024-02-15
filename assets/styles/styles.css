@@ -153,6 +153,7 @@ header {
 
 .filtre {
     color: brown;
+    cursor: pointer;
 }
 
 .filtre--selectionne {
