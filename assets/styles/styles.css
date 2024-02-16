@@ -23,6 +23,7 @@ body {
 
 main {
     margin-top: 50px;
+    position: relative;
 }
 
 h1 {
@@ -64,6 +65,7 @@ header {
 
 .grille {
     display: grid;
+    
 }
 
 .grille--2 {
@@ -98,7 +100,7 @@ header {
 .livre__img {
     min-height: 100%;
     object-fit: cover;
-    transform: scale(1);
+
     transition: transform .3s ease;
 }
 
@@ -107,12 +109,10 @@ header {
 }
 
 .livre__detail {
-    background: linear-gradient(to bottom, transparent, transparent 10%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, .6));
-    color: white;
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: flex-end;
+    gap: 5vw;
+    background: white;
+    color: black;
     left: 0;
     padding: 2vw;
     pointer-events: none;
@@ -121,7 +121,10 @@ header {
                 transform .3s ease;
     top: 0;
     width: 100%;
+    z-index: 2;
 }
+
+
 
 .livre__detail--cache {
     opacity: 0;
@@ -162,6 +165,10 @@ header {
 
 .filtre--selectionne {
     color: rgb(124, 44, 44);
+}
+
+.livre__detail img {
+    width: 15vw;
 }
 
 

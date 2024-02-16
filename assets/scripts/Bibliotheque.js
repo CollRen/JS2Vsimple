@@ -8,7 +8,7 @@ export default class Bibliotheque {
         this._filtreActuel;
         this._elsFiltre = this._el.querySelectorAll('[data-js-filtre]');
         this.tuile = document.querySelector('[data-js-tuile]');
-        this._elLivres = this._el.querySelector('[data-js-livres]')
+        this._elLivres = this._el.querySelector('[data-js-livres]');
         this.arrayLivre = oLivres;
         this.init();
     }
@@ -89,11 +89,11 @@ export default class Bibliotheque {
             // structures condition selon si filtre ou nouveauté
             if(this._filtre == oLivres[i].categorie || 
                 this._filtre == 'Nouveautés' && oLivres[i].nouveaute == true ||
-                this._filtre == 'Tous' || nbrAff ) {
+                this._filtre == 'Tous' || nbrAff == 12) {
 
                 let dom = `
-                    <div class="encadre insertedContent" data-js-livre=${i}>
-                        <img src="${oLivres[i].image}" alt="">
+                    <div class="encadre insertedContent livre " data-js-livre=${i}>
+                        <img class="livre__img" src="${oLivres[i].image}" alt="">
                         <p>${oLivres[i].categorie}</p>
                         <div class="grille--2__container">
                             <strong>${oLivres[i].prix}<nbsp></nbsp>$</strong>
