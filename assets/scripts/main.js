@@ -10,25 +10,19 @@ import Bibliotheque from './Bibliotheque.js';
 //import { appelleTests } from '../tests/appelleTests.test.js';
 
 window.addEventListener('DOMContentLoaded', function() {
-
+    
+    /**
+     * Vérification du localStorage
+     * S'il contient des éléments, le panier délaisse le noir pour un vert kaki
+     */
+    const panier = document.querySelector('.panier');
+    let panierLS = localStorage.getItem('contenuPanier');
+    if(panierLS) panier.classList.add('panier_contenu');
     
     
     const elsBibliotheque =  document.querySelectorAll('[data-js-bibliotheque]');
     for (let i = 0, l =  elsBibliotheque.length; i < l; i++) {
         new Bibliotheque(elsBibliotheque[i], 'base');
     }
-    
-    /**
-     * Vérification du localStorage 
-     * @param object Récupérer l'objet qui s'y trouve
-     */
-    /* const localStorage = localStorage.getItem("contenuPanier"); */
-    /**
-     * 
-     * @param dom svg du panier
-     */
-    const elPanier =  document.querySelector('[data-js-panier]');
-    if (elPanier) new Panier(elPanier);
-
 });
 //appelleTests();

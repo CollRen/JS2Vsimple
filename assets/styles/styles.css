@@ -2,7 +2,7 @@
 /* VARIABLES */
 
 :root {
-    --delais: 0s;
+    --delais: .2s;
 }
 
 
@@ -16,14 +16,8 @@
 
 /* ELEMENTS */
 
-body {
-    margin: 0;
-    padding: 8vw;
-}
-
 main {
     margin-top: 50px;
-    position: relative;
 }
 
 h1 {
@@ -65,12 +59,15 @@ header {
 
 .grille {
     display: grid;
+    gap: 1rem;
+    width: 50%;
+    margin: 0 auto;
+    height: fit-content;
     
 }
 
 .grille--2 {
     gap: 4vw;
-    width: 40vw;
     grid-template-columns: repeat(2, 1fr);
     margin: 0 auto;
 }
@@ -87,15 +84,9 @@ header {
 .livre {
     cursor: pointer;
     display: flex;
-    overflow: hidden;
-    position: relative;
+    flex-direction: column;
 }
 
-.livre::after {
-    content: '';
-    display: block;
-    padding-bottom: 75%;
-}
 
 .livre__img {
     min-height: 100%;
@@ -108,18 +99,30 @@ header {
     transform: scale(1.05);
 }
 
+[data-js-modal] {
+    position: relative;
+    margin: 0;
+}
+
+.insertedContent {
+    height: min-content;
+}
+
+
 .livre__detail {
+    position: fixed;
+    top: 5vw;
     display: flex;
+    flex-basis: 100%;
     gap: 5vw;
-    background: white;
-    color: black;
+    background: rgba(45, 40, 40, 0.888);
+    color: rgb(255, 220, 220);
+    
     left: 0;
     padding: 2vw;
     pointer-events: none;
-    position: absolute;
     transition: opacity .3s ease,
                 transform .3s ease;
-    top: 0;
     width: 100%;
     z-index: 2;
 }
@@ -137,6 +140,7 @@ header {
 }
 
 .livre__detail p {
+    font-size: 1.25rem;
     transition: opacity .3s ease,
                 transform .3s ease;
     transition-delay: calc(var(--delais) * .04s);   /* Ref : https://css-tricks.com/different-approaches-for-creating-a-staggered-animation/ */
@@ -165,10 +169,6 @@ header {
 
 .filtre--selectionne {
     color: rgb(124, 44, 44);
-}
-
-.livre__detail img {
-    width: 15vw;
 }
 
 
