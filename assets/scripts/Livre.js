@@ -5,6 +5,8 @@ export default class Livre {
 
     constructor(_el) {
         this._el = _el;
+        this._eladdToPanier = this._el.querySelector('[data-js-ajouter-panier]');
+        this._elImage = this._el.querySelector('.livre__img');
         this._elModal = document.querySelector('[data-js-modal]');
 
        
@@ -12,8 +14,24 @@ export default class Livre {
     }
 
     init() {
+        this._eladdToPanier.addEventListener('click', function(onClick) {
+            let index = onClick.currentTarget.dataset.jsAjouterPanier;
+            let titre = oLivres[index].titre;
+            let titre = oLivres[index].titre;
+            console.log(titre);
+            console.log(onClick.currentTarget.dataset.jsAjouterPanier);
+            //console.log(onClick.currentTarget.dataset.value);
+/*             let objInsert = {};
+            localStorage.setItem('index', JSON.stringify(index)); */
+
+        }.bind(this));
+
+
+        /**
+         * Affichage du modal 'détail livre' au click
+         */
         const body = document.querySelector('.body');
-        this._el.addEventListener('click', function(onClick) {
+        this._elImage.addEventListener('click', function(onClick) {
                 let y = onClick.currentTarget.dataset.jsLivre;
                 let dom = 
                 `
@@ -43,7 +61,7 @@ export default class Livre {
                     let x = 0;
                     if(x == 1) {
                     body.addEventListener('click', function(onCloseClick) {
-                        console.log(onCloseClick);
+                        
                         elModalOn.remove();
                     }.bind(this));
 
@@ -54,11 +72,7 @@ export default class Livre {
             }.bind(this));
 
 
-/*             elModalOn.addEventListener('click', function(onClick) {
-                console.log(onClick);
-                onClick.remove();
-        
-            }); */
+            
     }
 
     }

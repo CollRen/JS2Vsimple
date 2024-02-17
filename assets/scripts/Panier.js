@@ -2,8 +2,20 @@ export default class Panier {
 
     constructor(elPanier){
         this._elPanier = elPanier;
+        console.log(this._elPanier);
         this.domAjoutAuPanier = document.querySelectorAll('[data-js-ajouter-panier]');
-        
+        /*
+Exemple: analyser (parse) la variable structurée avant
+sa lecture afin d’accéder à ses différentes valeurs. Pour ce faire, il faudra utiliser la
+méthode JSON.parse(sessionStorage.clef) ou JSON.parse(localStorage.clef)
+*/
+
+/*
+let datas = JSON.parse(sessionStorage.objetCle);
+}
+
+
+
 
         //this.domAjoutAuPanier = document.querySelectorAll('[data-js-ajouter-panier]');
         //this.objPanier = ContentLocalStorage;
@@ -24,7 +36,7 @@ export default class Panier {
 
             btnAjoutPanier.addEventListener('click', function(pushToPanier) {
                 let index = pushToPanier.currentTarget.dataset.jsAjouterPanier;
-                //console.log(index);
+                console.log(index);
                 //new Livre(index);
 
             //Changer oLivres pour le array de la bibliothèque ???

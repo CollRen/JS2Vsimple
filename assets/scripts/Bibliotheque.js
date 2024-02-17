@@ -93,7 +93,7 @@ export default class Bibliotheque {
 
                 let dom = `
                     <div class="encadre insertedContent livre " data-js-livre=${i}>
-                        <img class="livre__img" src="${oLivres[i].image}" alt="">
+                        <img class="livre__img" data-js-livre=${i} src="${oLivres[i].image}" alt="">
                         <p>${oLivres[i].categorie}</p>
                         <div class="grille--2__container">
                             <strong>${oLivres[i].prix}<nbsp></nbsp>$</strong>
@@ -108,6 +108,7 @@ export default class Bibliotheque {
 
         }
     }
+
     
     get newLivreArray() {
         return this.newArrayLivre;
