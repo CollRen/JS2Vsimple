@@ -25,13 +25,29 @@ export default class Bibliotheque {
      */
     filtreClic() {
         for (let i = 0, l = this._elsFiltre.length; i < l; i++) {
+            this._elsFiltre[i].classList.toggle('filtre--selectionne', false);
+
             this._elsFiltre[i].addEventListener('click', function(filtreChoisi){
+                this.EnleverStyleFiltre();
+                // this.filtreActuel.classListAdd('filtre--selectionne');
+                this.filtreActuel = this._elsFiltre[i];
+                this.filtreActuel.classList.toggle('filtre--selectionne',true);
+
+
+
+                //this.filtreActuel.classList.add('filtre--selectionne');
                 this._filtre = filtreChoisi.currentTarget.dataset.jsFiltre;
                 this.affichage();
+                
             }.bind(this));         
         }
     }
 
+    EnleverStyleFiltre() {
+        for (let i = 0, l = this._elsFiltre.length; i < l; i++) {
+            this._elsFiltre[i].classList.toggle('filtre--selectionne', false);
+        }
+    }
 
     affichage() {
         //this._filtreActuel.classList.add('filtre--clicked');
@@ -83,6 +99,7 @@ export default class Bibliotheque {
 
 
     affBase(filtre, nbrAff = oLivres.length) {
+
         this._elLivres.innerHTML = '';
         for (let i = 0; i < nbrAff; i++) {
 
@@ -101,6 +118,7 @@ export default class Bibliotheque {
                         </div>
                     </div>`;
                 this._elLivres.insertAdjacentHTML('beforeend', dom);
+                
                 
                 new Livre(this._elLivres.lastElementChild);
             }

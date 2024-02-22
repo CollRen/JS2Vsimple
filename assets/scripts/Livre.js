@@ -17,7 +17,6 @@ export default class Livre {
         this._eladdToPanier.addEventListener('click', function(onClick) {
             let index = onClick.currentTarget.dataset.jsAjouterPanier;
             let titre = oLivres[index].titre;
-            let titre = oLivres[index].titre;
             console.log(titre);
             console.log(onClick.currentTarget.dataset.jsAjouterPanier);
             //console.log(onClick.currentTarget.dataset.value);
@@ -56,24 +55,14 @@ export default class Livre {
                 `;
                 this._elModal.insertAdjacentHTML('afterbegin', dom);
 
-                const elModalOn = document.querySelector('.livre__detail');
-                if(onClick) {
-                    let x = 0;
-                    if(x == 1) {
-                    body.addEventListener('click', function(onCloseClick) {
-                        
-                        elModalOn.remove();
-                    }.bind(this));
-
-                    }
-                x++;
-                }
+                
 
             }.bind(this));
 
-
+        
             
     }
+
 
     }
 
