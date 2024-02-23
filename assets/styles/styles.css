@@ -49,6 +49,7 @@ header {
 }
 
 .panier {
+    cursor: pointer;
     width: 50px;
 }
 
@@ -99,17 +100,37 @@ header {
     transform: scale(1.05);
 }
 
-[data-js-modal] {
-    position: relative;
+.modal {
+    background: rgba(45, 40, 40, 0.888);
+    color: rgb(255, 220, 220);
+    height: 100vh;
+    left: 0;
+    position: fixed;
     margin: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10;
 }
 
 .insertedContent {
     height: min-content;
 }
 
-
 .livre__detail {
+    display: flex;
+    flex-basis: 100%;
+    gap: 5vw;
+   
+    padding: 2vw;
+    transition: opacity .3s ease,
+                transform .3s ease;
+    width: 100%;
+}
+
+/*
+.livre__detail {
+    z-index: 2;
+    cursor: pointer;
     position: fixed;
     top: 5vw;
     display: flex;
@@ -127,7 +148,7 @@ header {
     max-height: 80vh;
     z-index: 2;
 }
-
+*/
 
 
 .livre__detail--cache {

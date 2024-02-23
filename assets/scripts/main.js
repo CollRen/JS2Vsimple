@@ -19,6 +19,7 @@ window.addEventListener('DOMContentLoaded', function() {
     let panierLS = localStorage.getItem('contenuPanier');
     if(panierLS) panier.classList.add('panier_contenu');
     new Panier(panier);
+
     
     
     const elsBibliotheque =  document.querySelectorAll('[data-js-bibliotheque]');
