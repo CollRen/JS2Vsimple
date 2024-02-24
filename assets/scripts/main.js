@@ -1,6 +1,9 @@
 import {oLivres} from './oLivres.js';
 import Panier from './Panier.js';
 import Bibliotheque from './Bibliotheque.js';
+let biblioLocalStorage = [];
+export default biblioLocalStorage;
+
 
 
 
@@ -16,9 +19,11 @@ window.addEventListener('DOMContentLoaded', function() {
      * S'il contient des éléments, le panier délaisse le noir pour un vert kaki
      */
     const panier = document.querySelector('.panier');
-    let panierLS = localStorage.getItem('contenuPanier');
+    let panierLS = localStorage.getItem('Panier');
     if(panierLS) panier.classList.add('panier_contenu');
     new Panier(panier);
+    //biblioLocalStorage.push(panierLS);
+    // console.log(biblioLocalStorage);
 
     
     

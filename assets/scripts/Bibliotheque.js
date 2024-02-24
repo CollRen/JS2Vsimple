@@ -19,6 +19,7 @@ export default class Bibliotheque {
         //this.onFilterClic();
     }
 
+    
     /**
      * Au click d'un filtre
      * Lancer l'affichage des livres en conséquence
