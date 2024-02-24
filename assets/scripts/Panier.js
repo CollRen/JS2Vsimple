@@ -19,12 +19,14 @@ export default class Panier {
 
   afficherLocalStorage() {
     let total = 0;
+    let s = '';
+    biblioLocalStorage.length > 1 ? 's' : '';
 
     let dom = `
     <div class="el-modal-panier csscontent__modal_panier--ouvert">    
         <table>
             <tr>
-                <th>Livre</th>
+                <th>Livre${biblioLocalStorage.length > 1 ? 's' : ''}</th>
                 <th>Prix</th>
             </tr>`;
 
