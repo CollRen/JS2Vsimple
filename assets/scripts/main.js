@@ -22,7 +22,6 @@ window.addEventListener('DOMContentLoaded', function() {
     let panierLS = localStorage.getItem('Panier');
     if(panierLS) panier.classList.add('panier_contenu');
     new Panier(panier);
-    //biblioLocalStorage.push(panierLS);
     // console.log(biblioLocalStorage);
 
     

@@ -2,9 +2,7 @@ export default class Panier {
 
     constructor(elPanier){
         this._elPanier = elPanier;
-        console.log(this._elPanier);
-        this.domAjoutAuPanier = document.querySelectorAll('[data-js-ajouter-panier]');
-        console.log(this.domAjoutAuPanier);
+        //this.domAjoutAuPanier = document.querySelectorAll('[data-js-ajouter-panier]');
 
         this.init();
 
@@ -20,8 +18,8 @@ export default class Panier {
     }
 
     afficherLocalStorage() {
-        const localStorage = localStorage.getItem("myCat");
-        console.log('GO');
+        
+        //console.log(localStorage);
     }
     // localStorage.setItem('arrayPanier', JSON.stringify(objInsert));
 
