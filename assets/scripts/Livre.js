@@ -56,25 +56,25 @@ export default class Livre {
         let dom = `
                 <div class="modal" data-js-modal>
                     <div class="livre__detail">
-                        <br>
+                        
                         <img src="${oLivres[this._index].image}" alt="">
-                        <br>
+                        
                         <div class="livre__detail--right">
-                        <br>
+                        
                         <p>Titre: ${oLivres[this._index].titre}</p>
-                        <br>
+                        
                         <p><small>Auteur: </small>${
                           oLivres[this._index].auteur
                         }</p>
-                        <br>
+                        
                         <p><small>Éditeur: </small>${
                           oLivres[this._index].editeur
                         }</p>
-                        <br>
+                        
                         <p><small>Pages: </small>${
                           oLivres[this._index].pages
                         }</p>
-                        <br>
+                        
                         <p>${oLivres[this._index].description}</p>
                         </div>
                         <div class="livre__detail--x">X</div>
