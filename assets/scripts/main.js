@@ -23,7 +23,6 @@ window.addEventListener('DOMContentLoaded', function() {
     if(panierLS) panier.classList.add('panier_contenu');
     new Panier(panier);
     // console.log(biblioLocalStorage);
-
     
     
     const elsBibliotheque =  document.querySelectorAll('[data-js-bibliotheque]');

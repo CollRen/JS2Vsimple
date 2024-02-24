@@ -4,23 +4,24 @@ export default class Panier {
     this._elPanier = elPanier;
     this._elModalPanier = document.querySelector("[data-js-modal-panier]");
 
-    this.init();
+    this.#init();
   }
 
-  init() {
+  #init() {
     this._elPanier.addEventListener(
       "click",
       function (e) {
-        this.afficherLocalStorage();
+        this.afficherModalPanier();
       }.bind(this)
     );
   }
 
 
-  afficherLocalStorage() {
+  afficherModalPanier() {
     let total = 0;
     let s = '';
     biblioLocalStorage.length > 1 ? 's' : '';
+
 
     let dom = `
     <div class="el-modal-panier csscontent__modal_panier--ouvert">    
@@ -49,7 +50,11 @@ export default class Panier {
     </tr>
 </table> 
 </div>`;
-
+    if (biblioLocalStorage.length == 0) {
+    dom = `<div class="el-modal-panier csscontent__modal_panier--ouvert">
+                <p>Votre panier est vide</p>
+            </div>`;
+    }
     this._elModalPanier.innerHTML = dom;
     let elModalPanier = document.querySelector(".el-modal-panier");
 

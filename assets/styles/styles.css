@@ -76,7 +76,7 @@ header {
 
 
 .grille--2__container {
-    background-color: pink;
+    cursor: pointer;
     display: flex;
     justify-content: space-between;
     padding: 1rem;

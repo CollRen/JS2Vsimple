@@ -40,6 +40,8 @@ export default class Livre {
             this.bookInLS = true;
           this.addToLocalStorage(index);
         } else {
+            const panier = document.querySelector('.panier');
+            panier.classList.add('panier_contenu');
           this.addToLocalStorage(index);
         }
       }.bind(this)
