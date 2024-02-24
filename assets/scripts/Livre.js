@@ -18,14 +18,11 @@ export default class Livre {
 
   init() {
     let userData = JSON.parse(localStorage.getItem("Panier"));
- 
+
     if (this.currentLocalStorage && biblioLocalStorage.length == 0) {
-        console.log('On ajoute le LS à notre array une seule fois []')
-        console.log(biblioLocalStorage.length);
-        this.ajouterContenuLsToArray(userData);
-        console.log(biblioLocalStorage.length);
+      this.ajouterContenuLsToArray(userData);
     }
-    
+
     /**
      * Au click, ajouter les livres au LocalStorage
      */
@@ -37,11 +34,11 @@ export default class Livre {
         let prix = oLivres[index].prix;
         this.currentLocalStorage = localStorage.getItem("Panier");
         if (this.currentLocalStorage) {
-            this.bookInLS = true;
+          this.bookInLS = true;
           this.addToLocalStorage(index);
         } else {
-            const panier = document.querySelector('.panier');
-            panier.classList.add('panier_contenu');
+          const panier = document.querySelector(".panier");
+          panier.classList.add("panier_contenu");
           this.addToLocalStorage(index);
         }
       }.bind(this)
@@ -103,23 +100,18 @@ export default class Livre {
     let objInsert = { index, titre, prix };
 
     if (!this.currentLocalStorage) {
-        console.log(this.currentLocalStorage);
-        console.log('Premier livre');
-        biblioLocalStorage.push(objInsert);
-        localStorage.setItem("Panier", JSON.stringify(biblioLocalStorage));
-        this.currentLocalStorage = localStorage.getItem("Panier");
+      biblioLocalStorage.push(objInsert);
+      localStorage.setItem("Panier", JSON.stringify(biblioLocalStorage));
+      this.currentLocalStorage = localStorage.getItem("Panier");
     } else {
-        console.log('Il y a au moins un livre');
       let userData = JSON.parse(localStorage.getItem("Panier"));
       let isLivreInLs = false;
       for (let i = 0; i < userData.length; i++) {
         if (userData[i].index == index) {
           isLivreInLs = true;
         }
-        console.log('Fin de la boucle isLivreInLs vaut:', isLivreInLs );
       }
       if (!isLivreInLs) {
-        console.log("Livre pas là donc ajoute");
         biblioLocalStorage.push(objInsert);
         localStorage.clear();
         localStorage.setItem("Panier", JSON.stringify(biblioLocalStorage));
@@ -131,15 +123,13 @@ export default class Livre {
     elModal.remove();
   }
 
-  ajouterContenuLsToArray (userData) {
+  ajouterContenuLsToArray(userData) {
     for (let i = 0; i < userData.length; i++) {
-        console.log('ajouterContenuLsToArray');
-        let index = userData[i].index;
-        let titre = userData[i].titre;
-        let prix = userData[i].prix;
-        let objInsert = { index, titre, prix };
-        biblioLocalStorage.push(objInsert);
+      let index = userData[i].index;
+      let titre = userData[i].titre;
+      let prix = userData[i].prix;
+      let objInsert = { index, titre, prix };
+      biblioLocalStorage.push(objInsert);
     }
   }
-
 }

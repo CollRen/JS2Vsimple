@@ -1,130 +1,119 @@
-@import './reset.css';
+@import "./reset.css";
 /* VARIABLES */
 
 :root {
-    --delais: .2s;
+  --delais: 0.2s;
 }
-
 
 /* GENERIC */
 
 * {
-    box-sizing: border-box;
-    font-family: sans-serif;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
-
 
 /* ELEMENTS */
 
 main {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 h1 {
-    font-size: 2rem;
-    letter-spacing: .15rem;
+  font-size: 2rem;
+  letter-spacing: 0.15rem;
 }
 
 h2,
 p,
 small,
 sup {
-    letter-spacing: .05em;
-    margin: 0;
+  letter-spacing: 0.05em;
+  margin: 0;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
-
 
 /* COMPONENTS */
 
-
 header {
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .panier {
-    cursor: pointer;
-    width: 50px;
+  cursor: pointer;
+  width: 50px;
 }
 
 .panier_contenu {
-    fill: green;
+  fill: green;
 }
 
-
 .grille {
-    display: grid;
-    gap: 1rem;
-    width: 50%;
-    margin: 0 auto;
-    height: fit-content;
-    
+  display: grid;
+  gap: 1rem;
+  width: 50%;
+  margin: 0 auto;
+  height: fit-content;
 }
 
 .grille--2 {
-    gap: 4vw;
-    grid-template-columns: repeat(2, 1fr);
-    margin: 0 auto;
+  gap: 4vw;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 auto;
 }
 
-
-
 .grille--2__container {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
 }
 
 .livre {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
-
 .livre__img {
-    min-height: 100%;
-    object-fit: cover;
+  min-height: 100%;
+  object-fit: cover;
 
-    transition: transform .3s ease;
+  transition: transform 0.3s ease;
 }
 
 .livre:hover .livre__img {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .modal {
-    background: rgba(45, 40, 40, 0.888);
-    color: rgb(255, 220, 220);
-    height: 100vh;
-    left: 0;
-    position: fixed;
-    margin: 0;
-    top: 0;
-    width: 100%;
-    z-index: 10;
+  background: rgba(45, 40, 40, 0.888);
+  color: rgb(255, 220, 220);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  margin: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .insertedContent {
-    height: min-content;
+  height: min-content;
 }
 
 .livre__detail {
-    display: flex;
-    flex-basis: 100%;
-    gap: 5vw;
-   
-    padding: 2vw;
-    transition: opacity .3s ease,
-                transform .3s ease;
-    width: 100%;
+  display: flex;
+  flex-basis: 100%;
+  gap: 5vw;
+
+  padding: 2vw;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  width: 100%;
 }
 
 /*
@@ -150,72 +139,66 @@ header {
 }
 */
 
-
 .livre__detail--cache {
-    opacity: 0;
-    transform: translateY(25px);
+  opacity: 0;
+  transform: translateY(25px);
 }
 
 .livre__detail--cache p {
-    opacity: 0;
-    transform: translateY(25px);
+  opacity: 0;
+  transform: translateY(25px);
 }
 
 .livre__detail p {
-    font-size: 1.25rem;
-    transition: opacity .3s ease,
-                transform .3s ease;
-    transition-delay: calc(var(--delais) * .04s);   /* Ref : https://css-tricks.com/different-approaches-for-creating-a-staggered-animation/ */
+  font-size: 1.25rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition-delay: calc(
+    var(--delais) * 0.04s
+  ); /* Ref : https://css-tricks.com/different-approaches-for-creating-a-staggered-animation/ */
 }
 
 .livre__detail h2 + p {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .livre__detail p + p {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .livre__detail small {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 .filtre {
-    color: brown;
-    cursor: pointer;
+  color: brown;
+  cursor: pointer;
 }
 
 .filtre--clicked {
-    opacity: 50%;
+  opacity: 50%;
 }
 
 .filtre--selectionne {
-    color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
 }
 
 .csscontent {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
 .csscontent__modal_panier--ouvert::before {
-
-    content: 'X';
+  content: "X";
 }
 
-
 table {
-    width: 100%;
-    display: flex;
-    gap: 5rem;
+  width: 100%;
+  display: flex;
+  gap: 5rem;
 }
 
 p {
-    padding: 0.65rem;
-    line-height: 1.85rem;
+  padding: 0.65rem;
+  line-height: 1.85rem;
 }
-
-
-
-
