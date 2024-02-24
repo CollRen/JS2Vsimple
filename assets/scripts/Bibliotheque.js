@@ -15,7 +15,6 @@ export default class Bibliotheque {
   #init() {
     this.affichage();
     this.#filtreClic();
-    //this.onFilterClic();
   }
 
   /**
@@ -30,11 +29,8 @@ export default class Bibliotheque {
         "click",
         function (filtreChoisi) {
           this.enleverStyleFiltre();
-          // this.filtreActuel.classListAdd('filtre--selectionne');
           this.filtreActuel = this._elsFiltre[i];
           this.filtreActuel.classList.toggle("filtre--selectionne", true);
-
-          //this.filtreActuel.classList.add('filtre--selectionne');
           this._filtre = filtreChoisi.currentTarget.dataset.jsFiltre;
           this.affichage();
         }.bind(this)
@@ -49,7 +45,6 @@ export default class Bibliotheque {
   }
 
   affichage() {
-    //this._filtreActuel.classList.add('filtre--clicked');
     this.newArrayLivre = this.arrayLivre;
 
     switch (this._filtre) {
@@ -98,7 +93,7 @@ export default class Bibliotheque {
   affBase(filtre, nbrAff = oLivres.length) {
     this._elLivres.innerHTML = "";
     for (let i = 0; i < nbrAff; i++) {
-      // structures condition selon si filtre ou nouveauté
+      // structures conditionelle selon si c'est filtre ou nouveauté
       if (
         this._filtre == oLivres[i].categorie ||
         (this._filtre == "Nouveautés" && oLivres[i].nouveaute == true) ||
@@ -119,9 +114,5 @@ export default class Bibliotheque {
         new Livre(this._elLivres.lastElementChild);
       }
     }
-  }
-
-  get newLivreArray() {
-    return this.newArrayLivre;
   }
 }

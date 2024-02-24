@@ -51,7 +51,6 @@ export default class Livre {
     this._elImage.addEventListener(
       "click",
       function (e) {
-        //let y = e.currentTarget.dataset.jsLivre;
         let dom = `
                 <div class="modal" data-js-modal>
                     <div class="livre__detail">
@@ -80,9 +79,12 @@ export default class Livre {
                     </div>
                 </div>
                 `;
-        //this._elModal.insertAdjacentHTML('afterbegin', dom);
+
         document.body.insertAdjacentHTML("afterbegin", dom);
 
+        /**
+         * Au click, retirer le modal
+         */
         let elModal = document.querySelector("[data-js-modal]");
         elModal.addEventListener(
           "click",
@@ -123,6 +125,11 @@ export default class Livre {
     elModal.remove();
   }
 
+  /**
+   *
+   * Ajouter les données du localStoral de l'utilisateur à notre array afin de pouvoir vérifier s'il s'y trouve déjà
+   * Et pour l'affichage du panier contenant ces informations.
+   */
   ajouterContenuLsToArray(userData) {
     for (let i = 0; i < userData.length; i++) {
       let index = userData[i].index;

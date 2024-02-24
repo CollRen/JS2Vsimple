@@ -4,9 +4,6 @@ import Bibliotheque from "./Bibliotheque.js";
 let biblioLocalStorage = [];
 export default biblioLocalStorage;
 
-// Lancer les instance de class
-//
-
 //import { appelleTests } from '../tests/appelleTests.test.js';
 
 window.addEventListener("DOMContentLoaded", function () {

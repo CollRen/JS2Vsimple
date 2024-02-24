@@ -55,6 +55,9 @@ export default class Panier {
     this._elModalPanier.innerHTML = dom;
     let elModalPanier = document.querySelector(".el-modal-panier");
 
+    /**
+     * Lancer l'écouteur afin de refermer le modal au click
+     */
     this._elModalPanier.addEventListener("click", function (e) {
       elModalPanier.remove();
     });
